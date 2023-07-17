@@ -1,0 +1,53 @@
+@model Customer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Index</title>
+        <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body class="m-1 p-1">
+        <table class="table table-bordered table-striped table-sm">
+            <tr>
+                <th>Customer Id</th>
+                <td>@Model.CustomerId</td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <th>Line 1</th>
+                <td>@Model.Address?.Line1</td>
+            </tr>
+            <tr>
+                <th>Line 2</th>
+                <td>@Model.Address?.Line2</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>@Model.Address?.Phone</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>@Model.Address?.City</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>@Model.Address?.Country</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>@Model.Role</td>
+            </tr>
+        </table>
+    </body>
+</html>

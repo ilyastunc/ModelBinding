@@ -1,0 +1,54 @@
+@* @model string[]   //array için*@
+@model List<CustomerModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Customers</title>
+        <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body class="m-1 p-1">
+        @if (Model.Count() == 0)
+        {
+            <form method="post" asp-action="Customers">
+            @for (int i = 0; i < 3; i++)
+            {
+                <fieldset>
+                    <legend>Customer @(i+1)</legend>
+                    <div form-group>
+                        <label>Name</label>
+                        <input type="text" name="[@i].Name" class="form-control">
+                    </div>
+                    <div form-group>
+                        <label>SurName</label>
+                        <input type="text" name="[@i].SurName" class="form-control">
+                    </div>
+                </fieldset>
+                
+            }
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+        }
+        else
+        {
+            <table class="table table-striped table-sm">
+                <tr>
+                    <th>Name</th>
+                    <th>SurName</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Name</th>
+                        <td>@item.SurName</td>
+                    </tr>
+                }
+            </table>
+            <a asp-action="Customers" class="btn btn-primary">Back</a>
+        }
+    </body>
+</html>
